@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    
+</head>
+<body>
+  <div class="container">
+    <form action="{% url 'companydata' %}" method="post" style="text-align:center;" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleFormControlInput1" style="text-align:center;"><h4>Company name</h4></label>
+          <input type="text" name="Companyname" class="form-control" id="exampleFormControlInput1" placeholder="text">
+        </div><br>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1" style="text-align:center;"><h4>Company address</h4></label>
+          <input type="text" name="Companyaddress">
+          
+        </div>
+        <br>
+        <label style="text-align:center;"> Contact number</label>
+        <input type="text" name="contactnumber"><br><br>
+      <div class="form-group">
+        <input type="file" name="companyimage">
+ </div>
+<br>
+<button style="text-align:center;">Submit</button>
+<input type="submit" value="delete">
+
+</form> 
+</div>
+</body>
+</html>

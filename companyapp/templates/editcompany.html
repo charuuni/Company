@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+</head>
+<body>
+  <div class="container">
+    {% for i in data %}
+    <form action="{% url 'update' id=i.id %}" method="post" style="text-align:center;" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleFormControlInput1" style="text-align:center;"><h2>Company name</h2></label>
+          <input type="text" name="Companyname" value="{{i.companyname}}"class="form-control" id="exampleFormControlInput1" placeholder="text">
+        </div><br><br>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1" style="text-align:center;"><h3>Company address</h3></label>
+          <input type="text" name="Companyaddress" value="{{i.companyaddress}}">
+          
+        </div>
+        <br><br>
+        <label style="text-align:center;"> Contact number</label>
+        <input type="text" name="contactnumber" value="{{i.contactnumber}}"><br>
+      <div class="form-group">
+        <input type="file" name="companyimage">
+ </div>
+<br>
+<button style="text-align:center;">Submit</button>
+
+</form> 
+{% endfor %}
+</div>
+</body>
+</html>
